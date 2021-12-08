@@ -17,7 +17,6 @@ from pyrogram.types import (
     InlineQueryResultPhoto,
     InputTextMessageContent,
 )
-#from youtubesearchpython import VideosSearch
 
 from userge import Config, Message, get_collection, userge
 from userge.core.ext import RawClient
@@ -27,16 +26,20 @@ from userge.utils import rand_key
 
 from .bot.alive import Bot_Alive
 from .bot.gogo import Anime
-#from .bot.utube_inline import (
+
+# from .bot.utube_inline import (
 #    download_button,
 #    get_yt_video_id,
 #    get_ytthumb,
 #    result_formatter,
 #    ytsearch_data,
-#)
+# )
 from .fun.stylish import Styled, font_gen
 from .misc.redditdl import reddit_thumb_link
 from .utils.notes import get_inote
+
+# from youtubesearchpython import VideosSearch
+
 
 CHANNEL = userge.getCLogger(__name__)
 
@@ -151,9 +154,8 @@ if userge.has_bot:
     def check_owner(func):
         async def wrapper(_, c_q: CallbackQuery):
             if c_q.from_user and (
-                c_q.from_user.id
-                in Config.OWNER_ID
-                 or c_q.from_user.id in Config.TRUSTED_SUDO_USERS
+                c_q.from_user.id in Config.OWNER_ID
+                or c_q.from_user.id in Config.TRUSTED_SUDO_USERS
             ):
                 await c_q.answer()
                 try:
